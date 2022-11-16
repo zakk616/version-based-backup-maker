@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Threading.Tasks;
 
 namespace gitBackupProject
 {
@@ -124,14 +123,14 @@ namespace gitBackupProject
             git_add(path);
             git_commit(path);
 
-            Log.WriteLog("git push origin " + branch);
+            Log.WriteLog("git push -f origin " + branch);
 
             var statusCommand = new ProcessStartInfo
             {
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
                 FileName = "CMD.exe",
-                Arguments = @"/c cd " + path + " & git push origin " + branch,
+                Arguments = @"/c cd " + path + " & git push -f origin " + branch,
             };
 
 
